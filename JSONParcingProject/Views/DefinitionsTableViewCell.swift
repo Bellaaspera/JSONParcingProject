@@ -9,25 +9,22 @@ import UIKit
 
 class DefinitionsTableViewCell: UITableViewCell {
 
-    @IBOutlet var nameAndFoneticLabel: UILabel!
-    @IBOutlet var partOfSpeechLabel: UILabel!
-    @IBOutlet var definitionLabel: UILabel!
-    @IBOutlet var exampleLabel: UILabel!
+    @IBOutlet var secondLabel: UILabel!
+    @IBOutlet var thirdLabel: UILabel!
+    @IBOutlet var forthLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
       
     }
 
-    func getInfo(for word: Word) {
+    func getInfo(for word: Word, section: Int, row: Int) {
         
-        nameAndFoneticLabel.text = "Name: \(word.word ?? "No data") \nPhonetics: \(word.phonetic ?? "No data")"
-        guard let meanings = word.meanings else { return }
-        for meaning in meanings {
-        partOfSpeechLabel.text = "Part of speech: \(meaning.partOfSpeech ?? "No data")"
-        definitionLabel.text = "Definition: \(meaning.definitions?[0].definition ?? "No data")"
-        exampleLabel.text = "Example: \(meaning.definitions?[0].example ?? "No data")"
-        }
+        secondLabel.text = "\(row + 1). Phonetics: \(word.phonetic ?? "No data")"
+        guard let meaning = word.meanings?[section] else { return }
+        thirdLabel.text = "Definition: \(meaning.definitions?[row].definition ?? "No data")"
+        forthLabel.text = "Example: \(meaning.definitions?[row].example ?? "No data")"
+        
     }
 
 }

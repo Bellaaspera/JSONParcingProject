@@ -11,13 +11,12 @@ class WordsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    private var words: [Word]?
+    private var word: Word?
     var textForURLAdress: String?
-    private var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 180
+        tableView.rowHeight = 150
         getWordInfo()
         navigationItem.hidesBackButton = true
     }
@@ -30,13 +29,13 @@ class WordsViewController: UIViewController {
         ) { [weak self] result in
             switch result {
             case .success(let words):
-                self?.words = words
-                self?.index = words[words.startIndex].meanings?.count ?? 0
+                self?.word = words[words.count-1]
                 self?.tableView.reloadData()
                 print(words)
                 print(words.count)
             case .failure(let error):
                 print(error)
+                self?.showAlert(with: "IMPOSSIBLE TO DISPLAY DATA!", and: "This word doesn't exist. Please, enter correct word in the previouse screen!")
             }
         }
         
@@ -46,12 +45,16 @@ class WordsViewController: UIViewController {
 extension WordsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let words = words else { return 1 }
-        return words.count
+        guard let currentWord = word else { return 1 }
+        guard let currentMeanings = currentWord.meanings else { return 1 }
+        return currentMeanings.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        index
+        guard let currentWord = word else { return 1 }
+        guard let currentMeanings = currentWord.meanings else { return 1 }
+        guard let definitions = currentMeanings[section].definitions else { return 1 }
+        return definitions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,10 +62,12 @@ extension WordsViewController: UITableViewDataSource, UITableViewDelegate {
             withIdentifier: "cell",
             for: indexPath
         ) as? DefinitionsTableViewCell else { return UITableViewCell() }
-        if let word = words?[indexPath.section] {
-            for _ in 0...indexPath.row {
-        cell.getInfo(for: word)
-            }
+        if let word = word {
+            cell.getInfo(for: word, section: indexPath.section, row: indexPath.row)
+        }
+        let index = indexPath.row
+        if index % 2 == 0 {
+            cell.backgroundColor = .systemGray5
         }
         return cell
     }
@@ -74,15 +79,22 @@ extension WordsViewController: UITableViewDataSource, UITableViewDelegate {
         let label = UILabel()
         label.frame = CGRect.init(x: 16, y: 0, width: view.frame.width, height: view.frame.height - 20)
         label.textColor = .black
-        guard let words = words else { return UIView() }
-        label.text = words[section].word?.uppercased()
+        guard let word = word else { return UIView() }
+        label.text = "\(word.word?.uppercased() ?? "Loadind...") : \(word.meanings?[section].partOfSpeech ?? "No data")"
         label.font = .boldSystemFont(ofSize: 20)
         
         view.addSubview(label)
         
         return view
     }
-                      
-                                                            
+            
 }
 
+extension WordsViewController {
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let invalidTexOfRequest = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(invalidTexOfRequest)
+        present(alert, animated: true)
+    }
+}

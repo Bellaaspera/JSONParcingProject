@@ -15,17 +15,9 @@ struct Word: Decodable {
 struct Meaning: Decodable {
     let partOfSpeech: String?
     let definitions: [Definition]?
-    
-    static func getMeaning(partOfSpeech: String, definitions: [Definition]) -> Meaning {
-        Meaning(partOfSpeech: partOfSpeech, definitions: [Definition.getDefinition(definition: "", example: "")])
-    }
 }
 
 struct Definition: Decodable {
-    let definition: String?
+    let definition: String? 
     let example: String?
-    
-    static func getDefinition(definition: String, example: String) -> Definition {
-        Definition(definition: definition, example: example)
-    }
 }
