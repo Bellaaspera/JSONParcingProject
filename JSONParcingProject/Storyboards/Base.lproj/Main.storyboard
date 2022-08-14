@@ -101,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="1691.25" y="34.859154929577464"/>
         </scene>
-        <!--Text Field View Controller-->
+        <!--WORDS App-->
         <scene sceneID="orv-R7-CuZ">
             <objects>
                 <viewController id="RLl-ts-xBF" customClass="TextFieldViewController" customModule="JSONParcingProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,7 +159,7 @@
                             <constraint firstItem="cG9-jf-15K" firstAttribute="top" secondItem="Xj9-Zo-Z4u" secondAttribute="bottom" constant="21" id="yXe-f6-2yG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tlO-sA-xQb"/>
+                    <navigationItem key="navigationItem" title="WORDS App" id="tlO-sA-xQb"/>
                     <connections>
                         <outlet property="activityIndicator" destination="efE-Fb-dDA" id="bAM-j9-rPM"/>
                         <outlet property="imageView" destination="Xj9-Zo-Z4u" id="Pbp-YV-v98"/>
@@ -176,9 +176,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ips-yS-fDv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iqP-Ao-8Ka">
+                    <navigationBar key="navigationBar" alpha="0.29999999999999999" contentMode="scaleToFill" barStyle="blackTranslucent" id="iqP-Ao-8Ka">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemIndigoColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" systemColor="systemIndigoColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -193,6 +199,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
