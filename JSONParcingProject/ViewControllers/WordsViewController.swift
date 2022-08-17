@@ -11,34 +11,54 @@ class WordsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    private var words: [Word] = []
     private var word: Word?
     var textForURLAdress: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 150
-        getWordInfo()
+//        getWordInfo()
+        fetchWord()
         navigationItem.hidesBackButton = true
     }
     
-    private func getWordInfo() {
-        
-        NetworkManager.shared.fetch(
-            [Word].self,
-            from: "https://api.dictionaryapi.dev/api/v2/entries/en/\(textForURLAdress ?? "hello")"
-        ) { [weak self] result in
+    private func getUrl() -> String {
+        return "https://api.dictionaryapi.dev/api/v2/entries/en/\(textForURLAdress ?? "hello")"
+    }
+    
+//    private func getWordInfo() {
+//
+//        NetworkManager.shared.fetch(
+//            [Word].self,
+//            from: "https://api.dictionaryapi.dev/api/v2/entries/en/\(textForURLAdress ?? "hello")"
+//        ) { [weak self] result in
+//            switch result {
+//            case .success(let words):
+//                self?.word = words[words.count-1]
+//                self?.tableView.reloadData()
+//                print(words)
+//                print(words.count)
+//            case .failure(let error):
+//                print(error)
+//                self?.showAlert(with: "IMPOSSIBLE TO DISPLAY DATA!", and: "This word doesn't exist. Please, enter correct word in the previouse screen!")
+//            }
+//        }
+//
+//    }
+    
+    private func fetchWord() {
+        NetworkManager.shared.fetchWord(from: getUrl()) { [weak self] result in
             switch result {
             case .success(let words):
-                self?.word = words[words.count-1]
+                self?.words = words
+                self?.word = words[words.startIndex]
                 self?.tableView.reloadData()
                 print(words)
-                print(words.count)
             case .failure(let error):
-                print(error)
-                self?.showAlert(with: "IMPOSSIBLE TO DISPLAY DATA!", and: "This word doesn't exist. Please, enter correct word in the previouse screen!")
+                print(error.localizedDescription)
             }
         }
-        
     }
 }
 

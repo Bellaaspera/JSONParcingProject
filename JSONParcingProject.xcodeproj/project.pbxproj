@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		70020AD528A7A30400F64D6F /* DefinitionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70020AD428A7A30400F64D6F /* DefinitionsTableViewCell.swift */; };
+		70020AE628AAE78300F64D6F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 70020AE528AAE78300F64D6F /* Alamofire */; };
 		705B679A28A5790B0098E32C /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B679928A5790B0098E32C /* TextFieldViewController.swift */; };
 		705B679C28A59CB30098E32C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B679B28A59CB20098E32C /* NetworkManager.swift */; };
 		70C5902F28A1956E006AA10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5902E28A1956E006AA10B /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70020AE628AAE78300F64D6F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = JSONParcingProject;
+			packageProductDependencies = (
+				70020AE528AAE78300F64D6F /* Alamofire */,
+			);
 			productName = JSONParcingProject;
 			productReference = 70C5902B28A1956E006AA10B /* JSONParcingProject.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +176,9 @@
 				Base,
 			);
 			mainGroup = 70C5902228A1956E006AA10B;
+			packageReferences = (
+				70020AE428AAE78200F64D6F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 70C5902C28A1956E006AA10B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -350,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = VLWS5J8QR3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JSONParcingProject/App/Info.plist;
@@ -378,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = VLWS5J8QR3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JSONParcingProject/App/Info.plist;
@@ -422,6 +430,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70020AE428AAE78200F64D6F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70020AE528AAE78300F64D6F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70020AE428AAE78200F64D6F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 70C5902328A1956E006AA10B /* Project object */;
 }
