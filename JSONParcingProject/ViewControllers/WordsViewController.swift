@@ -23,6 +23,11 @@ class WordsViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
     
+    
+    @IBAction func addButtonPressed() {
+        
+    }
+    
     private func getUrl() -> String {
         return "https://api.dictionaryapi.dev/api/v2/entries/en/\(textForURLAdress ?? "hello")"
     }

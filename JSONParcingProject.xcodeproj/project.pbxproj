@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		70020AD528A7A30400F64D6F /* DefinitionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70020AD428A7A30400F64D6F /* DefinitionsTableViewCell.swift */; };
 		70020AE628AAE78300F64D6F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 70020AE528AAE78300F64D6F /* Alamofire */; };
+		704329AC28B0D6FA00FD3C1C /* WordFromDictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704329AB28B0D6FA00FD3C1C /* WordFromDictViewController.swift */; };
+		704329AE28B0D71800FD3C1C /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704329AD28B0D71800FD3C1C /* AddWordViewController.swift */; };
 		705B679A28A5790B0098E32C /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B679928A5790B0098E32C /* TextFieldViewController.swift */; };
 		705B679C28A59CB30098E32C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B679B28A59CB20098E32C /* NetworkManager.swift */; };
 		70C5902F28A1956E006AA10B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5902E28A1956E006AA10B /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		70020AD428A7A30400F64D6F /* DefinitionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsTableViewCell.swift; sourceTree = "<group>"; };
+		704329AB28B0D6FA00FD3C1C /* WordFromDictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFromDictViewController.swift; sourceTree = "<group>"; };
+		704329AD28B0D71800FD3C1C /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		705B679928A5790B0098E32C /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
 		705B679B28A59CB20098E32C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		70C5902B28A1956E006AA10B /* JSONParcingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONParcingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,8 +91,10 @@
 		70C5904228A19580006AA10B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				70C5903228A1956E006AA10B /* WordsViewController.swift */,
 				705B679928A5790B0098E32C /* TextFieldViewController.swift */,
+				70C5903228A1956E006AA10B /* WordsViewController.swift */,
+				704329AB28B0D6FA00FD3C1C /* WordFromDictViewController.swift */,
+				704329AD28B0D71800FD3C1C /* AddWordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,8 +214,10 @@
 			files = (
 				70C5903328A1956E006AA10B /* WordsViewController.swift in Sources */,
 				70C5904828A19635006AA10B /* Word.swift in Sources */,
+				704329AE28B0D71800FD3C1C /* AddWordViewController.swift in Sources */,
 				705B679A28A5790B0098E32C /* TextFieldViewController.swift in Sources */,
 				705B679C28A59CB30098E32C /* NetworkManager.swift in Sources */,
+				704329AC28B0D6FA00FD3C1C /* WordFromDictViewController.swift in Sources */,
 				70020AD528A7A30400F64D6F /* DefinitionsTableViewCell.swift in Sources */,
 				70C5902F28A1956E006AA10B /* AppDelegate.swift in Sources */,
 				70C5903128A1956E006AA10B /* SceneDelegate.swift in Sources */,

@@ -11,7 +11,13 @@ struct Word: Codable {
     var phonetic: String?
     var meanings: [Meaning]?
     
-    init (with value: [String:Any]) {
+    init(word: String, phonetic: String, meanings: [Meaning]) {
+        self.word = word
+        self.phonetic = phonetic
+        self.meanings = meanings
+    }
+    
+    init(with value: [String:Any]) {
         word = value["word"] as? String
         phonetic = value["phonetic"] as? String
         let meaningsDictionary = value["meanings"] as? [[String:Any]] ?? [[:]]
@@ -39,7 +45,12 @@ struct Meaning: Codable {
     var partOfSpeech: String?
     var definitions: [Definition]?
     
-    init (with value: [String:Any]) {
+    init(partOfSpeech: String, definitions: [Definition]) {
+        self.partOfSpeech = partOfSpeech
+        self.definitions = definitions
+    }
+    
+    init(with value: [String:Any]) {
         partOfSpeech = value["partOfSpeech"] as? String
         let definitionsDictionary = value["definitions"] as? [[String:Any]] ?? [[:]]
         var definitionsArray: [Definition] = []
@@ -55,6 +66,11 @@ struct Definition: Codable {
     var definition: String?
     var example: String?
     
+    init(definition: String, example: String) {
+        self.definition = definition
+        self.example = example
+    }
+    
     init(with value: [String:Any]) {
         definition = value["definition"] as? String
         example = value["example"] as? String
@@ -62,3 +78,15 @@ struct Definition: Codable {
     
 }
 
+enum PartOfSpeech: String, CaseIterable {
+    case noun = "noun"
+    case verd = "verb"
+    case adjective = "adjective"
+    case pronoun = "pronoun"
+    case numeral = "numeral"
+    case adverb = "adverb"
+    case preposition = "preposition"
+    case conjunction = "conjunction"
+    case particle = "particle"
+    case interjection = "interjection"
+}
